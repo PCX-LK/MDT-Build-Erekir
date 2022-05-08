@@ -35,23 +35,18 @@ jobs:
         sed -i 's/Mindustry/Mindustry BE/g' android/res/values/strings.xml
         ./gradlew pack
         ./gradlew desktop:dist server:dist android:assembleDebug --stacktrace
-        mv desktop/build/libs/Mindustry.jar desktop/build/libs/Mindustry-BE-Desktop-${RELEASE_VERSION}.jar
-        mv server/build/libs/server-release.jar server/build/libs/Mindustry-BE-Server-${RELEASE_VERSION}.jar
-    - name: Upload desktop artifacts
-      uses: svenstaro/upload-release-action@v2
+    - name: Upload built jar file（desktop）
+      uses: actions/upload-artifact@v2
       with:
-        repo_token: ${{ secrets.GITHUB_TOKEN }}
-        file: Mindustry/desktop/build/libs/Mindustry-BE-Desktop-${{ env.RELEASE_VERSION }}.jar
-        tag: ${{ github.ref }}
-    - name: Upload server artifacts
-      uses: svenstaro/upload-release-action@v2
+        name: desktop
+        path: desktop/build/libs/Mindustry.jar
+    - name: Upload built jar file(server)
+      uses: actions/upload-artifact@v2
       with:
-        repo_token: ${{ secrets.GITHUB_TOKEN }}
-        file: Mindustry/server/build/libs/Mindustry-BE-Server-${{ env.RELEASE_VERSION }}.jar
-        tag: ${{ github.ref }}
-    - name: Upload Android artifacts
-      uses: svenstaro/upload-release-action@v2
+        name: server
+        path: server/build/libs/server-release.jar 
+    - name: Upload built apk file
+      uses: actions/upload-artifact@v2
       with:
-        repo_token: ${{ secrets.GITHUB_TOKEN }}
-        file: Mindustry/android/build/outputs/apk/debug/android-debug.apk
-        tag: ${{ github.ref }}
+        name: android
+        path: android/build/outputs/apk/debug/android-debug.apk
