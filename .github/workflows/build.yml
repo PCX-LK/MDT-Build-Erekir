@@ -35,10 +35,8 @@ jobs:
         sed -i 's/Mindustry/Mindustry BE/g' android/res/values/strings.xml
         ./gradlew pack
         ./gradlew desktop:dist server:dist android:assembleDebug --stacktrace
-        ls android/build/outputs/apk/
         mv desktop/build/libs/Mindustry.jar desktop/build/libs/Mindustry-BE-Desktop-${RELEASE_VERSION}.jar
         mv server/build/libs/server-release.jar server/build/libs/Mindustry-BE-Server-${RELEASE_VERSION}.jar
-        mv android/build/outputs/apk/debug/android-debug.apk android/build/outputs/apk/standard/release/android-debug.apk
     - name: Upload desktop artifacts
       uses: svenstaro/upload-release-action@v2
       with:
@@ -55,5 +53,5 @@ jobs:
       uses: svenstaro/upload-release-action@v2
       with:
         repo_token: ${{ secrets.GITHUB_TOKEN }}
-        file: Mindustry/android/build/outputs/apk/standard/release/android-debug.apk
+        file: Mindustry/android/build/outputs/apk/debug/android-debug.apk
         tag: ${{ github.ref }}
