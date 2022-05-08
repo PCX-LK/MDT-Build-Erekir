@@ -54,5 +54,5 @@ jobs:
       uses: svenstaro/upload-release-action@v2
       with:
         repo_token: ${{ secrets.GITHUB_TOKEN }}
-        file: Mindustry/android/build/outputs/apk/standard/release/Mindustry-BE-Android-${{ env.RELEASE_VERSION }}.apk
+        file: Mindustry/android/build/outputs/apk/standard/release/android-debug.apk
         tag: ${{ github.ref }}
