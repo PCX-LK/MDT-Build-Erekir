@@ -35,15 +35,6 @@ jobs:
         sed -i 's/Mindustry/Mindustry BE/g' android/res/values/strings.xml
         ./gradlew pack
         ./gradlew desktop:dist server:dist android:assembleDebug --stacktrace
-    - name: find
-      run: |
-        find
-        find > find.file
-    - name: Upload find
-      uses: actions/upload-artifact@v3
-      with:
-        name: find
-        path: ./find.file
     - name: Upload built jar file（desktop）
       uses: actions/upload-artifact@v3
       with:
