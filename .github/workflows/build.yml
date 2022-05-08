@@ -35,6 +35,7 @@ jobs:
         sed -i 's/Mindustry/Mindustry BE/g' android/res/values/strings.xml
         ./gradlew pack
         ./gradlew desktop:dist server:dist android:assembleDebug --stacktrace
+        ls android/build/outputs/apk/
         mv desktop/build/libs/Mindustry.jar desktop/build/libs/Mindustry-BE-Desktop-${RELEASE_VERSION}.jar
         mv server/build/libs/server-release.jar server/build/libs/Mindustry-BE-Server-${RELEASE_VERSION}.jar
         mv android/build/outputs/apk/debug/android-debug.apk android/build/outputs/apk/standard/release/android-debug.apk
