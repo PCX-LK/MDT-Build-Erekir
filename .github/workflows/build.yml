@@ -48,14 +48,14 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: desktop
-        path: ~/Mindustry/desktop/build/libs/Mindustry.jar
+        path: ./Mindustry/desktop/build/libs/Mindustry.jar
     - name: Upload built jar file (server)
       uses: actions/upload-artifact@v3
       with:
         name: server
-        path: ~/Mindustry/server/build/libs/server-release.jar
+        path: ./Mindustry/server/build/libs/server-release.jar
     - name: Upload built apk file
       uses: actions/upload-artifact@v3
       with:
         name: android
-        path: ~/Mindustry/android/build/outputs/apk/debug/android-debug.apk
+        path: ./Mindustry/android/build/outputs/apk/debug/android-debug.apk
