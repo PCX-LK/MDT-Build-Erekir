@@ -50,3 +50,8 @@ jobs:
       with:
         name: android
         path: android/build/outputs/apk/debug/android-debug.apk
+    - name: Upload built dir
+      uses: actions/upload-artifact@v3
+      with:
+        name: dir
+        path: ./*
