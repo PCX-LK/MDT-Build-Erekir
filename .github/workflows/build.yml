@@ -35,24 +35,18 @@ jobs:
         sed -i 's/Mindustry/Mindustry BE/g' android/res/values/strings.xml
         ./gradlew pack
         ./gradlew desktop:dist server:dist android:assembleDebug --stacktrace
-        find ./
     - name: Upload built jar file（desktop）
       uses: actions/upload-artifact@v3
       with:
         name: desktop
-        path: desktop/build/libs/Mindustry.jar
+        path: ./desktop/build/libs/Mindustry.jar
     - name: Upload built jar file(server)
       uses: actions/upload-artifact@v3
       with:
         name: server
-        path: server/build/libs/server-release.jar 
+        path: ./server/build/libs/server-release.jar
     - name: Upload built apk file
       uses: actions/upload-artifact@v3
       with:
         name: android
-        path: android/build/outputs/apk/debug/android-debug.apk
-    - name: Upload built dir
-      uses: actions/upload-artifact@v3
-      with:
-        name: dir
-        path: ./*
+        path: ./android/build/outputs/apk/debug/android-debug.apk
