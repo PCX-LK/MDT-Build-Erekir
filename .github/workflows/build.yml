@@ -34,7 +34,7 @@ jobs:
         sed -i 's/"io.anuke.mindustry"/"io.anuke.mindustry.be"/g' android/AndroidManifest.xml
         sed -i 's/Mindustry/Mindustry BE/g' android/res/values/strings.xml
         ./gradlew pack
-        ./gradlew desktop:dist server:dist android:assembleDebug --stacktrace
+        ./gradlew desktop:dist server:dist android:assembleDebug -Pbuildversion=136 --stacktrace
     - name: Upload built jar file（desktop）
       uses: actions/upload-artifact@v3
       with:
