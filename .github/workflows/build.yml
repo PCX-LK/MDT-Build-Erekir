@@ -16,17 +16,7 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 16
-    - name: Set env
-      run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
-    - name: Set up keystore
-      run: |
-        echo "${{ secrets.KEYSTORE_BASE64 }}" > keystore.txt
-        base64 --decode keystore.txt > bekeystore.jks
     - name: Create artifacts
-      env:
-        keystore_password: ${{ secrets.KEYSTORE_PASSWORD_SECRET }}
-        keystore_alias_password: ${{ secrets.KEYSTORE_PASSWORD_SECRET }}
-        keystore_alias: frog
       run: |
         git clone --depth=1 --branch=erekir https://github.com/Anuken/Mindustry
         cd Mindustry
