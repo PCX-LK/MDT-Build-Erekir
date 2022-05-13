@@ -20,9 +20,9 @@ jobs:
       run: |
         git clone --depth=1 --branch=master https://github.com/Anuken/Mindustry
         cd Mindustry
-        sed -i 's/applicationId "io.anuke.mindustry"/applicationId "io.anuke.mindustry.be"/g' android/build.gradle
-        sed -i 's/"io.anuke.mindustry"/"io.anuke.mindustry.be"/g' android/AndroidManifest.xml
-        sed -i 's/Mindustry/Mindustry BE/g' android/res/values/strings.xml
+        sed -i 's/applicationId "io.anuke.mindustry"/applicationId "io.anuke.mindustry.v7"/g' android/build.gradle
+        sed -i 's/"io.anuke.mindustry"/"io.anuke.mindustry.v7"/g' android/AndroidManifest.xml
+        sed -i 's/Mindustry/Mindustry V7/g' android/res/values/strings.xml
         ./gradlew pack
         ./gradlew desktop:dist server:dist android:assembleDebug -Pbuildversion=136 -PversionType=alpha --stacktrace
     - name: Upload built jar file（desktop）
