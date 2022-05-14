@@ -43,18 +43,18 @@ jobs:
     - name: Upload artifacts (desktop)
       uses: svenstaro/upload-release-action@v2
       with:
-        repo_token: ${{ secrets.GITHUB_TOKEN }}
+        repo_token: ${{ secrets.THIS_IS_A_SECRET }}
         file: ./Mindustry/desktop/build/libs/Mindustry.jar
         tag: Erekir
     - name: Upload artifacts (server)
       uses: svenstaro/upload-release-action@v2
       with:
-        repo_token: ${{ secrets.GITHUB_TOKEN }}
+        repo_token: ${{ secrets.THIS_IS_A_SECRET }}
         file: ./Mindustry/server/build/libs/server-release.jar{{ env.RELEASE_VERSION }}.jar
         tag: Erekir
     - name: Upload artifacts (android)
       uses: svenstaro/upload-release-action@v2
       with:
-        repo_token: ${{ secrets.GITHUB_TOKEN }}
+        repo_token: ${{ secrets.THIS_IS_A_SECRET }}
         file: ./Mindustry/android/build/outputs/apk/debug/android-debug.apk{{ env.RELEASE_VERSION }}.jar
         tag: Erekir
