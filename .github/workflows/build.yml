@@ -25,21 +25,18 @@ jobs:
         sed -i 's/Mindustry/Mindustry V7/g' android/res/values/strings.xml
         ./gradlew pack
         ./gradlew desktop:dist server:dist android:assembleDebug -Pbuildversion=136 -PversionType=alpha --stacktrace
-    - name: Upload artifacts (desktop)
-      uses: svenstaro/upload-release-action@v2
+    - name: Upload built jar file（desktop）
+      uses: actions/upload-artifact@v3
       with:
-        repo_token: ${{ secrets.GITHUB_TOKEN }}
-        file: ./Mindustry/desktop/build/libs/Mindustry.jar
-        tag: Erekir
-    - name: Upload artifacts (server)
-      uses: svenstaro/upload-release-action@v2
+        name: desktop
+        path: ./Mindustry/desktop/build/libs/Mindustry.jar
+    - name: Upload built jar file (server)
+      uses: actions/upload-artifact@v3
       with:
-        repo_token: ${{ secrets.GITHUB_TOKEN }}
-        file: ./Mindustry/server/build/libs/server
-        tag: Erekir
-    - name: Upload artifacts (android)
-      uses: svenstaro/upload-release-action@v2
+        name: server
+        path: ./Mindustry/server/build/libs/server-release.jar
+    - name: Upload built apk file
+      uses: actions/upload-artifact@v3
       with:
-        repo_token: ${{ secrets.GITHUB_TOKEN }}
-        file: ./Mindustry/android/build/outputs/apk/debug/android-debug.apk
-        tag: Erekir
+        name: android
+        path: ./Mindustry/android/build/outputs/apk/debug/android-debug.apk
