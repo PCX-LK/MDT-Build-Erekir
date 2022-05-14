@@ -23,8 +23,8 @@ jobs:
         sed -i 's/applicationId "io.anuke.mindustry"/applicationId "io.anuke.mindustry.v7"/g' android/build.gradle
         sed -i 's/"io.anuke.mindustry"/"io.anuke.mindustry.v7"/g' android/AndroidManifest.xml
         sed -i 's/Mindustry/Mindustry V7/g' android/res/values/strings.xml
-        ./gradlew desktop:dist server:dist android:assembleDebug -Pbuildversion=136 -PversionType=alpha --stacktrace
         ./gradlew pack
+        ./gradlew desktop:dist server:dist android:assembleDebug -Pbuildversion=136 -PversionType=alpha --stacktrace
     - name: Upload artifacts (desktop)
       uses: svenstaro/upload-release-action@v2
       with:
