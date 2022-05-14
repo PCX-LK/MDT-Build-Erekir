@@ -25,21 +25,6 @@ jobs:
         sed -i 's/Mindustry/Mindustry V7/g' android/res/values/strings.xml
         ./gradlew pack
         ./gradlew desktop:dist server:dist android:assembleDebug -Pbuildversion=136 -PversionType=alpha --stacktrace
-    - name: Upload built jar file（desktop）
-      uses: actions/upload-artifact@v3
-      with:
-        name: desktop
-        path: ./Mindustry/desktop/build/libs/Mindustry.jar
-    - name: Upload built jar file (server)
-      uses: actions/upload-artifact@v3
-      with:
-        name: server
-        path: ./Mindustry/server/build/libs/server-release.jar
-    - name: Upload built apk file
-      uses: actions/upload-artifact@v3
-      with:
-        name: android
-        path: ./Mindustry/android/build/outputs/apk/debug/android-debug.apk
     - name: Upload artifacts (desktop)
       uses: svenstaro/upload-release-action@v2
       with:
