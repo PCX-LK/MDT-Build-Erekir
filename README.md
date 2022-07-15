@@ -1,4 +1,4 @@
-# ~~已弃用，Anuke已合并Erekir分支到Master,请到~~[Anuke的MindustryBuilds](https://github.com/Anuken/MindustryBuilds)~~储存库下载be版本~~
+# ~~已弃用，Anuke已合并Erekir分支到Master,请到~~[~~Anuke的MindustryBuilds~~](https://github.com/Anuken/MindustryBuilds)~~储存库下载be版本~~
 # 此储存库现在是自用状态(
 
 ## 用于构建Erekir(v7)的储存库
